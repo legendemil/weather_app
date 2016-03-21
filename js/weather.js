@@ -2,6 +2,39 @@ $(function () {
 	// main app controller
 	var WeatherApp = (function(){
 
+		//variables for represent weather status in DOM
+		var $weatherInfo, 
+			city;
+
+		//cache dom
+		function cacheDOM() {
+			$weatherInfo = $('#weather-info');
+			city = {
+				$name: $weatherInfo.find('#city-name'),
+				$temp: $weatherInfo.find('#city-temp'),
+				$weatherIcon: $weatherInfo.find('#city-weather-icon')
+			}
+		}
+
+		//weather unit module
+
+		var WeatherUnit = (function(){
+			//kelvin to celsius
+			function kelvinToCelsius(temp){
+				return temp - 273.15;
+			}
+
+			//celsius to fahrenheit
+			function celsiusToFahr(temp) {
+				// body...
+			}
+
+			return {
+				kelvinToCelsius: kelvinToCelsius,
+				celsiusToFahr: celsiusToFahr
+			}
+		})();
+
 		//get lattitude and longitude
 		function getCurrentPos() {
 			if(navigator.geolocation) {
@@ -31,7 +64,12 @@ $(function () {
 			}
 		}
 
-		//get weather data
+		//update view
+		function updateDOMWeather(weatherInfo) {
+			city.$name.text(weatherInfo.name);
+		}
+
+		//get weather data from openweather
 		function getWeatherData(pos) {
 			var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + pos.latitude 
 					+ '&lon=' + pos.longitude
@@ -39,9 +77,20 @@ $(function () {
 			//get JSON data from OpenWeather
 			$.getJSON(url, function (data) {
 				console.log(data);
+				updateDOMWeather(data);
 			});
 		}
 
-		 getCurrentPos();
+		//initialize app
+		function init() {
+			cacheDOM();
+			getCurrentPos();
+		}
+
+		 return {
+		 	init: init
+		 }
 	})();
+
+	WeatherApp.init();
 });
