@@ -21,12 +21,20 @@ $(function () {
 		var WeatherUnit = (function(){
 			//kelvin to celsius
 			function kelvinToCelsius(temp){
-				return temp - 273.15;
+				if(typeof temp == "number")
+					return (temp - 273.15).toFixed(2);
 			}
 
 			//celsius to fahrenheit
 			function celsiusToFahr(temp) {
-				// body...
+				if(typeof temp == "number")
+					return (temp * (9/5) + 32).toFixed(2);
+			}
+
+			//fahrenheit to celsius
+			function fahrToCelsius(temp) {
+				if(typeof temp == "number")
+					return ((temp - 32) / (9 / 5)).toFixed(2);
 			}
 
 			return {
@@ -67,6 +75,7 @@ $(function () {
 		//update view
 		function updateDOMWeather(weatherInfo) {
 			city.$name.text(weatherInfo.name);
+			city.$temp.text(WeatherUnit.kelvinToCelsius(weatherInfo.main.temp) + '°C');
 		}
 
 		//get weather data from openweather
@@ -92,5 +101,5 @@ $(function () {
 		 }
 	})();
 
-	WeatherApp.init();
+	//WeatherApp.init();
 });
