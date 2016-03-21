@@ -20,6 +20,9 @@ h1 {
 #weather-info #city-temp {
   font-size: 1.5em;
 }
+#weather-info > div {
+  margin-top: 20px;
+}
 i {
   font-size: 3em;
 }
