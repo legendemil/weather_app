@@ -4,9 +4,8 @@ body {
   color: #fff;
 }
 header {
-  margin-top: 40px;
   padding: 20px;
-  box-shadow: 2px 4px 30px -9px #fff;
+  box-shadow: 0px 10px 30px -15px #fff;
   border-radius: 10px;
 }
 h1 {
@@ -25,4 +24,9 @@ h1 {
 }
 i {
   font-size: 3em;
+}
+footer {
+  border-top: 1px solid #fff;
+  padding-top: 20px;
+  margin-top: 50px;
 }

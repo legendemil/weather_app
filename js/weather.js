@@ -12,7 +12,8 @@ $(function () {
 			city = {
 				$name: $weatherInfo.find('#city-name'),
 				$temp: $weatherInfo.find('#city-temp'),
-				$weatherIcon: $weatherInfo.find('#city-weather-icon')
+				$weatherIcon: $weatherInfo.find('#city-weather-icon'),
+				$weatherDesc: $weatherInfo.find('#city-weather-desc')
 			}
 		}
 
@@ -111,6 +112,7 @@ $(function () {
 		function updateDOMWeather(weatherInfo) {
 			city.$name.text(weatherInfo.name);
 			city.$temp.text(WeatherUnit.kelvinToCelsius(weatherInfo.main.temp) + '°C');
+			city.$weatherDesc.text(weatherInfo.weather[0].description.toUpperCase());
 			WeatherIcons.setIconWeather(weatherInfo.weather[0].main);
 		}
 
