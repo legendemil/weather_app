@@ -43,6 +43,41 @@ $(function () {
 			}
 		})();
 
+		var WeatherIcons = (function () {
+			/*
+				object map  weather conditions(weather.main) on icons
+			*/
+			var weatherIcons = {
+				"clear sky": "fa icon-sun",
+				"few clouds": "fa icon-cloud-sun",
+				"scattered clouds": "fa icon-cloud",
+				"broken clouds": "fa fa-cloud cloud-broken",
+				"shower rain": "fa icon-rain",
+				"rain": "fa icon-rain",
+				"thunderstorm": "fa icon-cloud-flash",
+				"snow": "fa icon-snow",
+				"mist": "fa icon-mist"
+			}
+
+			//set properly icon weather to DOM
+			function setIconWeather(weatherIconName) {
+				var weatherIcon;
+
+				weatherIconName = weatherIconName.toLowerCase();
+
+				if(weatherIcons.hasOwnProperty(weatherIconName)) {
+					weatherIcon = '<i class="' + weatherIcons[weatherIconName] + '"></i>';
+				} else {
+					weatherIcon = '<i class="fa icon-na"></i>'
+				}
+				city.$weatherIcon.html(weatherIcon);
+			}
+
+			return {
+				setIconWeather: setIconWeather
+			}
+		})();
+
 		//get lattitude and longitude
 		function getCurrentPos() {
 			if(navigator.geolocation) {
@@ -76,6 +111,7 @@ $(function () {
 		function updateDOMWeather(weatherInfo) {
 			city.$name.text(weatherInfo.name);
 			city.$temp.text(WeatherUnit.kelvinToCelsius(weatherInfo.main.temp) + '°C');
+			WeatherIcons.setIconWeather(weatherInfo.weather[0].main);
 		}
 
 		//get weather data from openweather
@@ -101,5 +137,5 @@ $(function () {
 		 }
 	})();
 
-	//WeatherApp.init();
+	WeatherApp.init();
 });
