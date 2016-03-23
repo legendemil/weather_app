@@ -66,7 +66,7 @@ $(function () {
 				var weatherIcon;
 
 				weatherIconName = weatherIconName.toLowerCase();
-				console.log(weatherIconName);
+				
 				if(weatherIcons.hasOwnProperty(weatherIconName)) {
 					weatherIcon = '<i class="' + weatherIcons[weatherIconName] + '"></i>';
 				} else {
