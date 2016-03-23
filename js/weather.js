@@ -50,6 +50,7 @@ $(function () {
 			*/
 			var weatherIcons = {
 				"clear sky": "fa icon-sun",
+				"clear": "fa icon-sun",
 				"few clouds": "fa icon-cloud-sun",
 				"scattered clouds": "fa icon-cloud",
 				"broken clouds": "fa fa-cloud cloud-broken",
@@ -65,7 +66,7 @@ $(function () {
 				var weatherIcon;
 
 				weatherIconName = weatherIconName.toLowerCase();
-
+				console.log(weatherIconName);
 				if(weatherIcons.hasOwnProperty(weatherIconName)) {
 					weatherIcon = '<i class="' + weatherIcons[weatherIconName] + '"></i>';
 				} else {
