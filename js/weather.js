@@ -23,19 +23,19 @@ $(function () {
 			//kelvin to celsius
 			function kelvinToCelsius(temp){
 				if(typeof temp == "number")
-					return (temp - 273.15).toFixed(2);
+					return (temp - 273.15).toFixed(1);
 			}
 
 			//celsius to fahrenheit
 			function celsiusToFahr(temp) {
 				if(typeof temp == "number")
-					return (temp * (9/5) + 32).toFixed(2);
+					return (temp * (9/5) + 32).toFixed(1);
 			}
 
 			//fahrenheit to celsius
 			function fahrToCelsius(temp) {
 				if(typeof temp == "number")
-					return ((temp - 32) / (9 / 5)).toFixed(2);
+					return ((temp - 32) / (9 / 5)).toFixed(1);
 			}
 
 			return {

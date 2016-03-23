@@ -1,32 +1,75 @@
 body {
   font-family: 'Lato', sans-serif !important;
-  background-image: url("../img/bg.png");
   color: #fff;
+}
+#top-site {
+  background-color: #59abe3;
+  text-transform: uppercase;
+}
+#main-site {
+  color: #59abe3;
 }
 header {
   padding: 20px;
-  box-shadow: 0px 10px 30px -15px #fff;
   border-radius: 10px;
 }
-h1 {
+header h2 {
   font-size: 3em;
+  font-weight: 100;
+  text-align: right;
+  padding-top: 20px;
 }
 #weather-info {
   margin-top: 50px;
   padding: 20px;
   border-top: 1px solid #fff;
 }
+#weather-info #city-name {
+  font-size: 5em;
+  font-weight: 100;
+  border-left: 1px solid #59abe3;
+  border-right: 1px solid #59abe3;
+}
 #weather-info #city-temp {
+  padding-top: 1em;
   font-size: 1.5em;
+  width: 3.5em;
+  height: 3.5em;
+  margin: 0 auto;
+  border-radius: 100%;
+  border: 1px solid #59abe3;
+  cursor: pointer;
+}
+#weather-info #city-weather-desc {
+  font-size: 1.5em;
+}
+#weather-info .spin-waiter {
+  display: block;
+  font-size: 17px;
+  -webkit-animation-name: spin-waiter;
+          animation-name: spin-waiter;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 #weather-info > div {
   margin-top: 20px;
 }
-i {
-  font-size: 3em;
+#weather-info i {
+  color: #6c7a89;
+  font-size: 6em;
 }
 footer {
-  border-top: 1px solid #fff;
-  padding-top: 20px;
   margin-top: 50px;
+}
+@-webkit-keyframes spin-waiter {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spin-waiter {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }

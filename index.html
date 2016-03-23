@@ -7,30 +7,37 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-	<link href='https://fonts.googleapis.com/css?family=Lato:400,100&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<!-- lato font -->
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,100' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="fontello-eff9ca52/css/fontello.css">
 </head>
 <body>
-	
-	<div class="container text-center">
-		<header>
-			<h1>Weather app</h1>
-			<h2>Weather in your place</h2>
-		</header>
 
+	<div class="container-fluid" id='top-site'>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<header>
+					<h1>Weather app</h1>
+					<h2>Weather in your place</h2>
+				</header>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container text-center" id='main-site'>	
 		<!-- contain weather details -->
 		<div id="weather-info">
 			<h2 id='city-name'>City name</h2>
 			<div id='city-temp'>
-				30 °C
+				<i class="fa icon-spin3 spin-waiter"></i>
 			</div>
 			<div id='city-weather-desc'>
-				
+				<i class="fa icon-spin3 spin-waiter"></i>
 			</div>
 			<div id='city-weather-icon'>
-				
+				<i class="fa icon-spin3 spin-waiter"></i>
 			</div>
 		</div>
 		<div class="row">
