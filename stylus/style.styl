@@ -5,6 +5,12 @@ blue3 = #89C4F4
 
 temp-size = 3.5em
 
+//mixin
+
+font-weather-shadow()	
+	text-shadow 2px 2px blue
+	
+
 body 
 	font-family 'Lato', sans-serif !important
 	color #fff
@@ -12,6 +18,10 @@ body
 #top-site
 	background-color blue
 	text-transform uppercase
+	background-image url('../img/clouds.jpg');
+	background-attachment fixed
+	background-size cover
+	height 500px
 		
 #main-site	
 	color blue
@@ -19,11 +29,16 @@ body
 header
 	padding 20px
 	border-radius 10px
+	h1
+		font-size 5em
+		margin-top 2em
+		font-weather-shadow()
 	h2
 		font-size 3em
 		font-weight 100
 		text-align right
 		padding-top 20px
+		font-weather-shadow()
 	
 
 
@@ -69,6 +84,7 @@ header
 
 footer
 	margin-top 50px
+	margin-bottom 20px
 	
 
 @keyframes spin-waiter {

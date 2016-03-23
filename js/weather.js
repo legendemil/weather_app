@@ -50,7 +50,6 @@ $(function () {
 			*/
 			var weatherIcons = {
 				"clear sky": "fa icon-sun",
-				"clear": "fa icon-sun",
 				"few clouds": "fa icon-cloud-sun",
 				"scattered clouds": "fa icon-cloud",
 				"broken clouds": "fa fa-cloud cloud-broken",
@@ -64,7 +63,7 @@ $(function () {
 			//set properly icon weather to DOM
 			function setIconWeather(weatherIconName) {
 				var weatherIcon;
-
+				console.log(weatherIconName);
 				weatherIconName = weatherIconName.toLowerCase();
 				
 				if(weatherIcons.hasOwnProperty(weatherIconName)) {
@@ -112,9 +111,11 @@ $(function () {
 		//update view
 		function updateDOMWeather(weatherInfo) {
 			city.$name.text(weatherInfo.name);
-			city.$temp.text(WeatherUnit.kelvinToCelsius(weatherInfo.main.temp) + '°C');
+			var weatherTemp = '<span id="temp-value">' + WeatherUnit.kelvinToCelsius(weatherInfo.main.temp) + '</span>';
+			weatherTemp += '<span id="temp-unit">°C</span>';
+			city.$temp.html(weatherTemp);
 			city.$weatherDesc.text(weatherInfo.weather[0].description.toUpperCase());
-			WeatherIcons.setIconWeather(weatherInfo.weather[0].main);
+			WeatherIcons.setIconWeather(weatherInfo.weather[0].description);
 		}
 
 		//get weather data from openweather

@@ -5,6 +5,10 @@ body {
 #top-site {
   background-color: #59abe3;
   text-transform: uppercase;
+  background-image: url("../img/clouds.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  height: 500px;
 }
 #main-site {
   color: #59abe3;
@@ -13,11 +17,17 @@ header {
   padding: 20px;
   border-radius: 10px;
 }
+header h1 {
+  font-size: 5em;
+  margin-top: 2em;
+  text-shadow: 2px 2px #59abe3;
+}
 header h2 {
   font-size: 3em;
   font-weight: 100;
   text-align: right;
   padding-top: 20px;
+  text-shadow: 2px 2px #59abe3;
 }
 #weather-info {
   margin-top: 50px;
@@ -72,6 +82,7 @@ header h2 {
 }
 footer {
   margin-top: 50px;
+  margin-bottom: 20px;
 }
 @-webkit-keyframes spin-waiter {
   100% {
