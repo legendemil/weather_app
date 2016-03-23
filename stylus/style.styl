@@ -1,6 +1,7 @@
 // variables
 blue = #59ABE3
-lynch = #6C7A89
+blue2 = #59ABE3
+blue3 = #89C4F4
 
 temp-size = 3.5em
 
@@ -51,12 +52,19 @@ header
 		font-size 17px
 		animation-name spin-waiter
 		animation-duration 1s
+	#anim-weather-icon
+		display block
+		animation-name anim-weather-icon
+		animation-duration 3s
+		animation-iteration-count infinite
+		animation-direction alternate
+		animation-timinig-function easy-out
 	> div
 		margin-top 20px	
 
 	i
-		color lynch
-		font-size 6em
+		color blue2
+		font-size 9em
 	
 
 footer
@@ -70,5 +78,16 @@ footer
 	
 	100% {
 		transform rotate(360deg)
+	}
+}
+
+@keyframes anim-weather-icon {
+	0% {
+		
+	}
+	
+	100% {
+		color blue3
+		transform scale(0.7,0.7)
 	}
 }

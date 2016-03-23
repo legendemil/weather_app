@@ -68,7 +68,7 @@ $(function () {
 				weatherIconName = weatherIconName.toLowerCase();
 				
 				if(weatherIcons.hasOwnProperty(weatherIconName)) {
-					weatherIcon = '<i class="' + weatherIcons[weatherIconName] + '"></i>';
+					weatherIcon = '<i class="' + weatherIcons[weatherIconName] + '" id="anim-weather-icon"></i>';
 				} else {
 					weatherIcon = '<i class="fa icon-na"></i>'
 				}

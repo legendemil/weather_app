@@ -51,12 +51,24 @@ header h2 {
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
 }
+#weather-info #anim-weather-icon {
+  display: block;
+  -webkit-animation-name: anim-weather-icon;
+          animation-name: anim-weather-icon;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  animation-timinig-function: easy-out;
+}
 #weather-info > div {
   margin-top: 20px;
 }
 #weather-info i {
-  color: #6c7a89;
-  font-size: 6em;
+  color: #59abe3;
+  font-size: 9em;
 }
 footer {
   margin-top: 50px;
@@ -71,5 +83,19 @@ footer {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes anim-weather-icon {
+  100% {
+    color: #89c4f4;
+    -webkit-transform: scale(0.7, 0.7);
+            transform: scale(0.7, 0.7);
+  }
+}
+@keyframes anim-weather-icon {
+  100% {
+    color: #89c4f4;
+    -webkit-transform: scale(0.7, 0.7);
+            transform: scale(0.7, 0.7);
   }
 }
