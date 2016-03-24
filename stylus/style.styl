@@ -60,6 +60,15 @@ header
 		border-radius 100%
 		border 1px solid blue
 		cursor pointer
+		transition-duration 0.5s
+		&:hover
+			border 1px solid white
+			box-shadow 6px 6px 20px -5px blue
+	.rotate-temp-btn
+		animation-name rotate-temp-btn
+		animation-duration 1s
+		animation-timinig-function easy-out
+		animation-fill-mode forwards
 	#city-weather-desc
 		font-size 1.5em
 	.spin-waiter
@@ -67,6 +76,7 @@ header
 		font-size 17px
 		animation-name spin-waiter
 		animation-duration 1s
+		animation-iteration-count infinite
 	#anim-weather-icon
 		display block
 		animation-name anim-weather-icon
@@ -85,25 +95,41 @@ header
 footer
 	margin-top 50px
 	margin-bottom 20px
-	
 
+
+
+// animations 
+// for spin waiter
 @keyframes spin-waiter {
-	0%{
-		
-	}
+	0%{	}
 	
 	100% {
 		transform rotate(360deg)
 	}
 }
 
+// for animation weather icon
 @keyframes anim-weather-icon {
-	0% {
-		
-	}
+	0% { }
 	
 	100% {
 		color blue3
 		transform scale(0.7,0.7)
+	}
+}
+
+@keyframes rotate-temp-btn {
+	0% {
+
+	}
+	50% {
+		transform scale(0,0) rotate(390deg)
+	}
+	
+	80% {
+		transform scale(1.3, 1.3) rotate(-20deg)
+	}
+	100% {
+		transform scale(1,1)
 	}
 }

@@ -22,6 +22,8 @@ $(function () {
 		function bindEvents() {
 			// click temp to switch unit from celsiu to fahrenheit
 			city.$temp.on('click', WeatherEvents.changeTempUnit);
+			//click to rotate temp btn
+			city.$temp.on('click', WeatherEvents.rotateTempBtn);
 		}
 
 
@@ -53,8 +55,13 @@ $(function () {
 				unit.text(newUnit);
 			}
 
+			function rotateTempBtn() {
+				$(this).addClass('rotate-temp-btn');
+			}
+
 			return {
-				changeTempUnit: changeTempUnit
+				changeTempUnit: changeTempUnit,
+				rotateTempBtn: rotateTempBtn
 			}
 		})();
 
