@@ -7,30 +7,28 @@ body {
   background-image: url("../img/clouds.jpg");
   background-attachment: fixed;
   background-size: cover;
-  height: 500px;
+  height: 100px;
 }
 #main-site {
   color: #59abe3;
 }
 header {
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
 }
 header h1 {
-  font-size: 5em;
-  margin-top: 2em;
+  font-size: 2em;
+  margin-top: 10px;
   text-shadow: 2px 2px #59abe3;
 }
 header h2 {
-  font-size: 3em;
-  font-weight: 100;
+  font-size: 1em;
   text-align: right;
-  padding-top: 20px;
   text-shadow: 2px 2px #59abe3;
 }
 #weather-info {
-  margin-top: 50px;
-  padding: 20px;
+  margin-top: 10px;
+  padding: 10px;
   border-top: 1px solid #fff;
 }
 #weather-info #city-name {
@@ -97,7 +95,6 @@ header h2 {
 }
 footer {
   margin-top: 50px;
-  margin-bottom: 20px;
 }
 @-webkit-keyframes spin-waiter {
   100% {

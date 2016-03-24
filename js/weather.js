@@ -189,7 +189,6 @@ $(function () {
 					+'&APPID=c09be5d42c5336f34ab83eb69ea5c0ec';
 			//get JSON data from OpenWeather
 			$.getJSON(url, function (data) {
-				console.log(data);
 				updateDOMWeather(data);
 			});
 		}
