@@ -17,30 +17,71 @@ $(function () {
 			}
 		}
 
-		//weather unit module
+		// binds events
 
+		function bindEvents() {
+			// click temp to switch unit from celsiu to fahrenheit
+			city.$temp.on('click', WeatherEvents.changeTempUnit);
+		}
+
+
+		// weather events module
+		var WeatherEvents = (function () {
+			function changeTempUnit() {
+				var value = $(this).find('#temp-value'),
+					unit = $(this).find('#temp-unit'),
+					newValue,
+					newUnit;
+				
+				//set proper unit and new convert Value
+				switch(city.$temp.data('unit')) {
+					case 'celsius':
+						newValue = WeatherUnit.celsiusToFahr(city.$temp.data('value'));
+						newUnit = 'F';
+						city.$temp.data('unit', 'fahrenheit');
+						city.$temp.data('value', newValue);
+						break;
+					case 'fahrenheit':
+						newValue = WeatherUnit.fahrToCelsius(city.$temp.data('value'));
+						newUnit = '°C';
+						city.$temp.data('unit', 'celsius');
+						city.$temp.data('value', newValue);
+						break;
+				}
+
+				value.text(newValue);
+				unit.text(newUnit);
+			}
+
+			return {
+				changeTempUnit: changeTempUnit
+			}
+		})();
+
+		//weather unit module
 		var WeatherUnit = (function(){
 			//kelvin to celsius
 			function kelvinToCelsius(temp){
-				if(typeof temp == "number")
+				if(typeof parseFloat(temp) == "number")
 					return (temp - 273.15).toFixed(1);
 			}
 
 			//celsius to fahrenheit
 			function celsiusToFahr(temp) {
-				if(typeof temp == "number")
-					return (temp * (9/5) + 32).toFixed(1);
+				if(typeof parseFloat(temp) == "number")
+					return (temp * 9 / 5 + 32).toFixed(1);
 			}
 
 			//fahrenheit to celsius
 			function fahrToCelsius(temp) {
-				if(typeof temp == "number")
+				if(typeof parseFloat(temp) == "number")
 					return ((temp - 32) / (9 / 5)).toFixed(1);
 			}
 
 			return {
 				kelvinToCelsius: kelvinToCelsius,
-				celsiusToFahr: celsiusToFahr
+				celsiusToFahr: celsiusToFahr,
+				fahrToCelsius: fahrToCelsius
 			}
 		})();
 
@@ -110,11 +151,23 @@ $(function () {
 
 		//update view
 		function updateDOMWeather(weatherInfo) {
-			city.$name.text(weatherInfo.name);
-			var weatherTemp = '<span id="temp-value">' + WeatherUnit.kelvinToCelsius(weatherInfo.main.temp) + '</span>';
+			//set city name and country 
+			city.$name.text(weatherInfo.name + ', ' + weatherInfo.sys.country);
+
+			// set temperature in celsius
+			var weatherInCelsius = WeatherUnit.kelvinToCelsius(weatherInfo.main.temp);
+			var weatherTemp = '<span id="temp-value">' + weatherInCelsius + '</span>';
 			weatherTemp += '<span id="temp-unit">°C</span>';
 			city.$temp.html(weatherTemp);
+			
+			//add data-unit,data-value attribute
+			city.$temp.data('unit', 'celsius');
+			city.$temp.data('value', weatherInCelsius);
+			
+			// set weather desc
 			city.$weatherDesc.text(weatherInfo.weather[0].description.toUpperCase());
+
+			// set weather icon
 			WeatherIcons.setIconWeather(weatherInfo.weather[0].description);
 		}
 
@@ -134,6 +187,7 @@ $(function () {
 		function init() {
 			cacheDOM();
 			getCurrentPos();
+			bindEvents();
 		}
 
 		 return {
