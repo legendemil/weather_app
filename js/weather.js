@@ -55,8 +55,12 @@ $(function () {
 				unit.text(newUnit);
 			}
 
+			//rotate weaterh btn
 			function rotateTempBtn() {
 				$(this).addClass('rotate-temp-btn');
+				setTimeout(function () {
+					$('.rotate-temp-btn').removeClass('rotate-temp-btn');
+				}, 1000);
 			}
 
 			return {
